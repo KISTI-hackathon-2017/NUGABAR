@@ -8,19 +8,19 @@ public class MapDevide {
 			
 		part = new Part[42][42];
 		int defaultNum = 0;
-		double defaultLat = 128.348464;
-		double defaultLng = 36.026216;
+		double defaultLng = 128.347808;
+		double defaultLat = 36.06123;
 		
-		double incLat = 0.0101613333;
-		double incLng = 0.000142196476;
+		double incLng = 0.01001019;
+		double decLat = 0.00997869;
 		
 		for(int i = 0 ; i < 42 ;i++) {
 			for(int j = 0 ; j < 42 ; j++) {
 				part[i][j] = new Part();
 				part[i][j].setNum(defaultNum++);
-				part[i][j].setLng(defaultLng + (incLng*i));
-				part[i][j].setLat(defaultLat + (incLat*j));
-				//System.out.println(part[i][j].getNum() + " -> " + part[i][j].getLat() + " : " + part[i][j].getLng());
+				part[i][j].setLat(defaultLat - (decLat*i));
+				part[i][j].setLng(defaultLng + (incLng*j));
+				//System.out.println(part[i][j].getNum() + " -> " + part[i][j].getLng() + " : " + part[i][j].getLat());
 			}
 		}
 		
@@ -28,7 +28,7 @@ public class MapDevide {
 	}
 
 
-	int searchLocation(double lat, double lng) {
+	int searchLocation(double lng, double lat) {
 		int startIndex = 0;
 		int maxIndex = 41;
 		
@@ -38,7 +38,7 @@ public class MapDevide {
 		
 		while(startIndex < maxIndex) {
 			int middle = (startIndex + maxIndex)/2;
-			if(part[0][middle].getLat() > lat)
+			if(part[0][middle].getLng() > lng)
 				maxIndex = middle-1;
 			else
 				startIndex = middle+1;
@@ -50,7 +50,7 @@ public class MapDevide {
 		
 		while(startIndex < maxIndex) {
 			int middle = (startIndex + maxIndex)/2;
-			if(part[middle][0].getLng() > lng)
+			if(part[middle][0].getLat() > lat)
 				maxIndex = middle-1;
 			else
 				startIndex = middle+1;
