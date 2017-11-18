@@ -4,21 +4,22 @@ public class Element {
 
 	double HUM;
 	double LNG;
-	double SPD;
-	String VBR;
+	//double SPD;
+	//String VBR;
 	String TIME;
-	int VOC;
+	//int VOC;
 	double CO;
 	double NO2;
 	double TEMP;
-	double PRES;
+	//double PRES;
 	double SO2;
-	String PM2_5;
-	String PM10;
+	int PM2_5;
+	int PM10;
 	int MCP;
 	double LAT;
 	String node_id;
 
+	
 	Element() {
 	};
 
@@ -38,22 +39,22 @@ public class Element {
 		LNG = lNG;
 	}
 
-	public double getSPD() {
+/*	public double getSPD() {
 		return SPD;
 	}
 
 	public void setSPD(double sPD) {
 		SPD = sPD;
 	}
-
-	public String getVBR() {
+*/
+/*	public String getVBR() {
 		return VBR;
 	}
 
 	public void setVBR(String vBR) {
 		VBR = vBR;
 	}
-
+*/
 	public String getTIME() {
 		return TIME;
 	}
@@ -62,14 +63,14 @@ public class Element {
 		TIME = tIME;
 	}
 
-	public int getVOC() {
+/*	public int getVOC() {
 		return VOC;
 	}
 
 	public void setVOC(int vOC) {
 		VOC = vOC;
 	}
-
+*/
 	public double getCO() {
 		return CO;
 	}
@@ -94,14 +95,14 @@ public class Element {
 		TEMP = tEMP;
 	}
 
-	public double getPRES() {
+/*	public double getPRES() {
 		return PRES;
 	}
 
 	public void setPRES(double pRES) {
 		PRES = pRES;
 	}
-
+*/
 	public double getSO2() {
 		return SO2;
 	}
@@ -110,19 +111,19 @@ public class Element {
 		SO2 = sO2;
 	}
 
-	public String getPM2_5() {
+	public int getPM2_5() {
 		return PM2_5;
 	}
 
-	public void setPM2_5(String pM2_5) {
+	public void setPM2_5(int pM2_5) {
 		PM2_5 = pM2_5;
 	}
 
-	public String getPM10() {
+	public int getPM10() {
 		return PM10;
 	}
 
-	public void setPM10(String pM10) {
+	public void setPM10(int pM10) {
 		PM10 = pM10;
 	}
 
