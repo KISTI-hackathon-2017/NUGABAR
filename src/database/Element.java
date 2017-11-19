@@ -18,7 +18,7 @@ public class Element {
 	int MCP;
 	double LAT;
 	String node_id;
-
+	int airGrade;
 	
 	Element() {
 	};
@@ -150,4 +150,14 @@ public class Element {
 	public void setNode_id(String node_id) {
 		this.node_id = node_id;
 	}
+	
+	public int getAirGrade() {
+		return airGrade;
+	}
+
+	public void setAirGrade(int airGrade) {
+		this.airGrade = airGrade;
+	}	
+	
 }
+

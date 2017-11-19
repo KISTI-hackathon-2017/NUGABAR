@@ -2,6 +2,8 @@ package database;
 
 public class Main {
 	public static void main(String [] args) {
-		new DatabaseThread();
+		//new DatabaseThread();
+		JsonHaein test = new JsonHaein();
+		
 	}
 }

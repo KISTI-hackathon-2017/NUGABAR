@@ -9,9 +9,9 @@ import org.json.simple.JSONValue;
 
 public class JsonHaein {
 	Element element[];
+	AirQualityIndex AQI;
 	public JsonHaein(){
 		try {
-
 			String url = "http://220.123.184.109:8080/KISTI_Web/sensor/whole.do";
 			URL postUrl;
 			postUrl = new URL(url);
@@ -27,8 +27,9 @@ public class JsonHaein {
 			for(int n = 0 ; n < objectSize ; n++) {
 				stringArr[n] = object.get(n).toString();
 				element[n] = new Element();				
-
+				
 				int count = 0;
+				
 				for(int i = 0 ; i < stringArr[n].length() ; i++) {
 					if(stringArr[n].charAt(i) == ':') {
 						for(int j = i ; j < stringArr[n].length() ; j++) {
@@ -68,9 +69,17 @@ public class JsonHaein {
 					
 						}
 					}
+				
 				}
 				
+				///
+				AQI = new AirQualityIndex(element[n].getSO2(), element[n].getNO2(),element[n].getCO(),
+						element[n].getPM10(),element[n].getPM2_5());
+				
+				element[n].setAirGrade(AQI.calculateCAI());
 			}
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
