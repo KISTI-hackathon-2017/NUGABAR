@@ -55,7 +55,7 @@ public class JsonHaein {
 										} break;
 								case 14: for(int k = i+1 ; k < j ; k++) {
 											if(stringArr[n].charAt(k) == ';') {
-												element[n].setPM2_5(Integer.parseInt(stringArr[n].substring(k+1,j-1))); break;
+												element[n].setPM10(Integer.parseInt(stringArr[n].substring(k+1,j-1))); break;
 											}
 										} break;
 								case 15: element[n].setMCP(Integer.parseInt(stringArr[n].substring(i+1,j))); break;
