@@ -20,7 +20,6 @@ public class MapDevide {
 				part[i][j].setNum(defaultNum++);
 				part[i][j].setLat(defaultLat - (decLat*i));
 				part[i][j].setLng(defaultLng + (incLng*j));
-				//System.out.println(part[i][j].getNum() + " -> " + part[i][j].getLng() + " : " + part[i][j].getLat());
 			}
 		}
 		
@@ -50,7 +49,7 @@ public class MapDevide {
 		
 		while(startIndex < maxIndex) {
 			int middle = (startIndex + maxIndex)/2;
-			if(part[middle][0].getLat() > lat)
+			if(part[middle][0].getLat() < lat)
 				maxIndex = middle-1;
 			else
 				startIndex = middle+1;

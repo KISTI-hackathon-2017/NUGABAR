@@ -2,9 +2,9 @@ package database;
 
 class Part{
 
-	int num;
-	double lng;
-	double lat;
+	private int num;
+	private double lng;
+	private double lat;
 	
 	Part(){}
 	
