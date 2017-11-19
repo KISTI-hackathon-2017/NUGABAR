@@ -72,7 +72,6 @@ public class JsonHaein {
 				
 				}
 				
-				///
 				AQI = new AirQualityIndex(element[n].getSO2(), element[n].getNO2(),element[n].getCO(),
 						element[n].getPM10(),element[n].getPM2_5());
 				
