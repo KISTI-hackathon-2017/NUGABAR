@@ -124,8 +124,6 @@
 					<hr>
 				</div>
 			</div>
-
-
 		</div>
 		<footer style="background-color : #2b6af9; color:#ffffff">
 			<div class="container">

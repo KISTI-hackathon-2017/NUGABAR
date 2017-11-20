@@ -88,7 +88,7 @@ $(function() {
 
 				style_red = {
 					      fillColor:"#FF0000",//fill에 적용 될 16진수 color입니다.
-					      fillOpacity:parseFloat(aq[i][j] / 200),// fill의 투명도입니다.
+					      fillOpacity:parseFloat(aq[i][j] / 100),// fill의 투명도입니다.
 					      strokeColor: "#FF0000",//stroke에 적용될 16진수 color입니다.
 					      strokeWidth: 1,//stroke의 넓이(pixel 단위)입니다. 
 					      strokeDashstyle: "solid",//stroke dash 의 스타일입니다.
@@ -136,7 +136,7 @@ function onClick(e){
 		var offset = new Tmap.Pixel(-(size.w / 2), -size.h);
 		var icon = new Tmap.IconHtml("<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png' />", size, offset);
 		var marker_s = new Tmap.Marker(lonlat, icon);
-		//markerStartLayer.addMarker(marker_s);
+		markerStartLayer.addMarker(marker_s);
 		
 	  $(function() {
 			$.ajax({
@@ -203,7 +203,7 @@ function onClick(e){
 				    var offset = new Tmap.Pixel(-(size.w / 2), -size.h);
 				    var icon = new Tmap.IconHtml("<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_p.png' />", size, offset);
 				    var marker = new Tmap.Marker(new Tmap.LonLat(x[resultIndex1][resultIndex2], y[resultIndex1][resultIndex2]).transform("EPSG:4326", "EPSG:3857"), icon);
-				   // markerWaypointLayer.addMarker(marker);
+				    markerWaypointLayer.addMarker(marker);
 				    
 				    var tmpx = x[resultIndex1][resultIndex2];
 				    var tmpy = y[resultIndex1][resultIndex2];
@@ -231,7 +231,7 @@ function onClick(e){
 					var offset = new Tmap.Pixel(-(size.w / 2), -size.h);
 					var icon = new Tmap.IconHtml("<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png' />", size, offset);
 					var marker_e = new Tmap.Marker(new Tmap.LonLat(x[resultIndex1][resultIndex2]).transform("EPSG:4326", "EPSG:3857"), icon);
-					//markerEndLayer.addMarker(marker_e);
+					markerEndLayer.addMarker(marker_e);
 					
 					console.log(resultIndex1 + " " + resultIndex2)
 					
@@ -301,9 +301,9 @@ function onClick(e){
 					/* -------------- Geometry.Point -------------- */
 					//경로 탐색  결과 Line 그리기
 					routeLayer.style ={
-							fillColor:"#000000",
+							fillColor:"#FF0000",
 					        fillOpacity:0.2,
-					        strokeColor: "#000000",
+					        strokeColor: "#FF0000",
 					        strokeWidth: 3,
 					        strokeDashstyle: "solid",
 					        pointRadius: 2,
@@ -312,8 +312,7 @@ function onClick(e){
 					var kmlForm = new Tmap.Format.KML().read(prtcl);
 					routeLayer.addFeatures(kmlForm);
 					
-					// 6. 경로탐색 결과 반경만큼 지도 레벨 조정
-					map.zoomToExtent(routeLayer.getDataExtent());
+					
 					
 				},
 				error:function(request,status,error){
@@ -322,9 +321,10 @@ function onClick(e){
 			});
 					
 					
-	});
-	  
-}
+					
+					
+					
+				}
 
 
 
