@@ -28,33 +28,24 @@ public class MapDevide {
 
 
 	int searchLocation(double lng, double lat) {
-		int startIndex = 0;
-		int maxIndex = 41;
 		
 		int resultIndex1 = 0;
 		int resultIndex2 = 0;
 		int result = 0;
 		
-		while(startIndex < maxIndex) {
-			int middle = (startIndex + maxIndex)/2;
-			if(part[0][middle].getLng() > lng)
-				maxIndex = middle-1;
-			else
-				startIndex = middle+1;
+		for(int i = 0 ; i <42; i++) {
+			if(part[0][i].getLng() >= lng) {
+				resultIndex1 = i;
+				break;
+			}
 		}
-		resultIndex1 = startIndex;
 		
-		startIndex = 0;
-		maxIndex = 41;
-		
-		while(startIndex < maxIndex) {
-			int middle = (startIndex + maxIndex)/2;
-			if(part[middle][0].getLat() < lat)
-				maxIndex = middle-1;
-			else
-				startIndex = middle+1;
+		for(int i = 0 ; i <42; i++) {
+			if(part[i][0].getLat() <= lat) {
+				resultIndex2 = i;
+				break;
+			}
 		}
-		resultIndex2 = startIndex;
 		
 		result = part[resultIndex2][resultIndex1].getNum();
 		return result;

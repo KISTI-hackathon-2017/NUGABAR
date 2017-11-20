@@ -14,7 +14,7 @@ public class UserDAO {
 	public UserDAO(){
 		try {
 			
-			String dbURL = "jdbc:mysql://localhost/ajax";
+			String dbURL = "jdbc:mysql://localhost/airstatus";
 			String dbID = "root";
 			String dbPassword = "root";
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
@@ -23,26 +23,21 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public ArrayList<User> search(String userName){
-		String SQL = "SELECT * FROM USER WHERE username LIKE ?";
+	public ArrayList<User> insert() {
+		String SQL = "SELECT * FROM daeguair";
 		ArrayList<User> userList = new ArrayList<User>();
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, userName);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				User user = new User();
-				user.setUserName(rs.getString(1));
-				user.setUserAge(rs.getInt(2));
-				user.setUserGender(rs.getString(3));
-				user.setUserEmail(rs.getString(4));
+				user.setBlock(rs.getInt(1));
+				user.setAqi(rs.getInt(14));
 				userList.add(user);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return userList;
-		
 	}
 }

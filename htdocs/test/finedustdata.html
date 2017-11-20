@@ -1,0 +1,124 @@
+<?php  
+$db_host = "localhost";
+$db_user = "root";
+$db_passwd = "root";
+$db_name = "airstatus";
+
+mysql_connect($db_host,$db_user,$db_passwd);
+mysql_select_db($db_name);
+mysql_query('set session character_set_connection=utf8;');
+mysql_query('set session character_set_results=utf8;');
+mysql_query('set session character_set_client=utf8;');
+
+$result = mysql_query("SELECT * FROM daeguair");
+$rows = array();
+?>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="UTF-8">
+			<meta name ="viewport" content="width=device-width", initial-scale="1">
+			<title> Find Trail System </title>
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/codingBooster.css">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html"> Find Track System </a>
+				</div>
+				<div class="collpase navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.html"> Introduce <span class="sr-only"></span></a>
+						</li>
+						<li><a href="#">Fine Dust Status</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Satus <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Daegu</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left">
+						<div class="form-group">
+							<input type="text" class="form-cintrol" placeholder="Enter content">
+						</div>
+						<button type="submit" class="btn btn-defualt">Search</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Test1 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Test2</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div> 
+		</nav>
+		<footer style="background-color : #2b6af9; color:#ffffff">
+			<div class="container">
+				<br>
+				<div class="row">
+					<div class="col-sm-5" style="text-align: left;"><h5>Introduce Team Member </h5><hr><h5>윤성호(Sungho Yun), 최호주(Hoju Choi), 한해인(Haein Han)</h5></div>
+					
+					<div class="col-sm-5" style="text-align : left;""><h5>Providing data</h5><hr><p>Kisti(Korea Institute of Science and Technology Information)
+						<br> Daegu City</p></div>
+					</div>		
+				</div>
+			</div>
+		</footer>
+		<div class="row">
+			<div class="modal" id="modal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							This System's Feature
+							<button class="close" data-dismiss="modal"> &times;</button>
+						</div>
+						<div class="modal-body" style="text-align: center";>
+							You can see fine dust data in real time. 
+							<br>
+							Because it collects data through a taxi around Daegu City.
+							<br>
+							<img src="images/taxi.jpg" id="imagepreview" style="width : 256px; height: 256px;">
+							<br>
+							<table class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>BLOCK </th>
+										<th>HUM </th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										while($row = mysql_fetch_assoc($result))						{
+									?>
+									<tr>
+										<td><?php echo echo $row['BLOCK']."&nbsp;".$row['HUM']."&nbsp;";?></td>
+									</tr>
+									<?php
+									}
+									?>
+								</tbody>
+							</table>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>

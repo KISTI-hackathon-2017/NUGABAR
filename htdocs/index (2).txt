@@ -1,0 +1,12 @@
+﻿<html>
+<head>
+<title>TEST</title>
+</head>
+<body>
+<h1>tetsetsetetest</h1>
+<?php
+phpinfo();
+?>
+
+</body>
+</html>

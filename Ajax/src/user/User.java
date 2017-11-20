@@ -1,37 +1,25 @@
 package user;
 
 public class User {
-	String userName;
-	int userAge;
-	String userGender;
-	String userEmail;
+	private int block;
+	private int aqi;
 	
+	public void setBlock(int block) {
+		this.block = block;
+	}
 	
+	public void setAqi(int aqi) {
+		this.aqi = aqi;
+	}
 	
-	public String getUserName() {
-		return userName;
+	public int getBlock() {
+		return block;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	
+	public int getAqi() {
+		return aqi;
 	}
-	public int getUserAge() {
-		return userAge;
-	}
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
-	}
-	public String getUserGender() {
-		return userGender;
-	}
-	public void setUserGender(String userGender) {
-		this.userGender = userGender;
-	}
-	public String getUserEmail() {
-		return userEmail;
-	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
+	
 	
 	
 }

@@ -27,7 +27,7 @@ public class DatabaseThread implements Runnable{
 		try {
 			while(true) {
 		connection.insertData();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

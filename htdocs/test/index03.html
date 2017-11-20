@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script
+	src="https://api2.sktelecom.com/tmap/js?version=1&format=javascript&appKey=aca9d12b-29a9-41c3-863b-b63f8004b499"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$.ajax({
+		type: "GET",
+		url: "./index.php",
+		dataType:"json",
+		success: function(data) {
+			//alert(data[0]);
+			$.each(data, function(index, item) {
+				alert(item['BLOCK']);
+				
+				var ar = data["BLOCK"];
+				var ar1 = data["AQI"];
+			})
+		}
+	})
+})
+</script>
+</head>
+<body>
+
+</body>
+</html>

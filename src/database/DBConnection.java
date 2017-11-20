@@ -52,7 +52,8 @@ public class DBConnection {
 							+ element[i].getTEMP() + "," + "SO2=" + element[i].getSO2() + "," + "PM2_5="
 							+ element[i].getPM2_5() + "," + "PM10=" + element[i].getPM10() + "," + "MCP="
 							+ element[i].getMCP() + "," + "LAT=" + element[i].getLAT() + "," + "NODE_ID="
-							+ element[i].getNode_id() + "WHERE BLOCK=" + block + ";";
+							+ element[i].getNode_id() + "," + "AQI=" + element[i].getAirGrade() + " "
+							 + "WHERE BLOCK=" + block + ";";
 					st.executeUpdate(SQL);
 					//System.out.println("finish UPDATE");
 				} else {
@@ -60,7 +61,8 @@ public class DBConnection {
 							+ element[i].getLNG() + "," + element[i].getTIME() + "," + element[i].getCO() + ","
 							+ element[i].getNO2() + "," + element[i].getTEMP() + "," + element[i].getSO2() + ","
 							+ element[i].getPM2_5() + "," + element[i].getPM10() + "," + element[i].getMCP() + ","
-							+ element[i].getLAT() + "," + element[i].getNode_id() + ");";
+							+ element[i].getLAT() + "," + element[i].getNode_id() + "," + element[i].getAirGrade() +
+							");";
 					st.executeUpdate(SQL);
 					//System.out.println("finish INSERT");
 				}
